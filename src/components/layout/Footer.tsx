@@ -6,13 +6,16 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 
 const Footer = () => (
-    <footer>
-    © {new Date().getFullYear()}, Built with
-    {` `}
-    <a href='https://www.gatsbyjs.org'>Gatsby</a>
-  </footer>
+  <FooterEl>
+    I am a footer
+  </FooterEl>
 );
+
+const FooterEl = styled.footer`
+  margin-top: auto;
+`;
 
 export default Footer;

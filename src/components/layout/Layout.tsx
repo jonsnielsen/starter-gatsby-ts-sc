@@ -11,7 +11,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
-import './layout.css';
 
 const Layout = ({ children }: Props) => (
   <StaticQuery
@@ -26,11 +25,11 @@ const Layout = ({ children }: Props) => (
     `}
     render={(data) => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Wrapper>
-          <main>{children}</main>
+        <FlexWrapper>
+          <Header siteTitle={data.site.siteMetadata.title} />
+            <Main>{children}</Main>
           <Footer />
-        </Wrapper>
+        </FlexWrapper>
       </>
     )}
   />
@@ -41,7 +40,13 @@ interface Props {
 }
 
 // Styles
-const Wrapper = styled.div`
+const FlexWrapper = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Main = styled.main`
   margin: 0 auto;
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
