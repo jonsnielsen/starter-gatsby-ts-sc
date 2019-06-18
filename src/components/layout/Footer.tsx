@@ -5,17 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from 'react';
-import styled from 'styled-components';
+import React from "react"
+import styled from "styled-components"
 
-const Footer = () => (
-  <FooterEl>
-    I am a footer
-  </FooterEl>
-);
+const Footer = () => <StyledFooter>I am a footer</StyledFooter>
 
-const FooterEl = styled.footer`
+const StyledFooter = styled.footer`
   margin-top: auto;
-`;
+`
 
-export default Footer;
+export default Footer

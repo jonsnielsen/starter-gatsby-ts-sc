@@ -1,37 +1,33 @@
-import { Link } from 'gatsby';
-import React from 'react';
+import { Link } from "gatsby"
+import React from "react"
 
-const Header = ({ siteTitle }: Props) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to='/'
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
+import styled from "styled-components"
 
 interface Props {
-  siteTitle: string;
+  siteTitle: string
 }
 
-export default Header;
+const Header = ({ siteTitle }: Props) => (
+  <StyledHeader>
+    <HeaderContent style={{}}>
+      <Link to="/">
+        <HeaderTitle>{siteTitle}</HeaderTitle>
+      </Link>
+    </HeaderContent>
+  </StyledHeader>
+)
+
+const StyledHeader = styled.header`
+  background: rebeccapurple;
+`
+const HeaderContent = styled.div`
+  margin: 0 auto;
+  max-width: 960;
+  padding: 1.45rem 1.0875rem;
+`
+const HeaderTitle = styled.h1`
+  color: white;
+  text-decoration: none;
+`
+
+export default Header

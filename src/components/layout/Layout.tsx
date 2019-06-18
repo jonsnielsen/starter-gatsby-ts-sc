@@ -12,6 +12,10 @@ import styled from 'styled-components';
 import Footer from './Footer';
 import Header from './Header';
 
+interface Props {
+  children: React.ReactNode;
+}
+
 const Layout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
@@ -27,17 +31,13 @@ const Layout = ({ children }: Props) => (
       <>
         <FlexWrapper>
           <Header siteTitle={data.site.siteMetadata.title} />
-            <Main>{children}</Main>
+          <Main>{children}</Main>
           <Footer />
         </FlexWrapper>
       </>
     )}
   />
 );
-
-interface Props {
-  children: React.ReactNode;
-}
 
 // Styles
 const FlexWrapper = styled.div`
@@ -48,9 +48,8 @@ const FlexWrapper = styled.div`
 
 const Main = styled.main`
   margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
+  max-width: 960;
+  padding: 1.45rem 1.0875rem;
 `;
 
 export default Layout;
