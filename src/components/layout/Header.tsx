@@ -1,33 +1,57 @@
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import React from "react"
+import logo from "../../assets/images/boka-fav.png"
 
 import styled from "styled-components"
 
-interface Props {
-  siteTitle: string
+const Header = () => {
+  const query: IQuery = useStaticQuery(headerQuery)
+  const title = query.site.siteMetadata.title
+  // const logo: any = query.file.childImageSharp.fluid
+  console.log(logo)
+
+  return (
+    <StyledHeader>
+      <Link to="/">
+        <LogoImg src={logo} alt="logo" />
+        <HeaderTitle>{title}</HeaderTitle>
+      </Link>
+    </StyledHeader>
+  )
 }
 
-const Header = ({ siteTitle }: Props) => (
-  <StyledHeader>
-    <HeaderContent style={{}}>
-      <Link to="/">
-        <HeaderTitle>{siteTitle}</HeaderTitle>
-      </Link>
-    </HeaderContent>
-  </StyledHeader>
-)
-
 const StyledHeader = styled.header`
-  background: rebeccapurple;
+  background: ${({ theme }) => theme.colors.primary[500]};
 `
-const HeaderContent = styled.div`
-  margin: 0 auto;
-  max-width: 960;
-  padding: 1.45rem 1.0875rem;
+const LogoImg = styled.img`
+  width: 50px;
 `
 const HeaderTitle = styled.h1`
   color: white;
   text-decoration: none;
+`
+
+interface IQuery {
+  file: { childImageSharp: { fluid: any } }
+  site: { siteMetadata: { title: string } }
+}
+
+const headerQuery = graphql`
+  query {
+    file(relativePath: { eq: "boka-fav.png" }) {
+      childImageSharp {
+        fluid {
+          srcSet
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
 `
 
 export default Header
