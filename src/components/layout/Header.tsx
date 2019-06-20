@@ -39,13 +39,6 @@ interface IQuery {
 
 const headerQuery = graphql`
   query {
-    file(relativePath: { eq: "boka-fav.png" }) {
-      childImageSharp {
-        fluid {
-          srcSet
-        }
-      }
-    }
     site {
       siteMetadata {
         title

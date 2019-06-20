@@ -8,6 +8,9 @@ import theme from "../../config/theme"
 
 console.log(theme)
 const GlobalStyle = createGlobalStyle`
+  h1, h2, h3, body, div, p, li, button, a {
+    color: ${theme.colors.on.background}
+  }
   h1 {
     font-size: ${theme.fontSize.h1};
   }
