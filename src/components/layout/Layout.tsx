@@ -1,12 +1,12 @@
-import { graphql, StaticQuery } from "gatsby"
-import React from "react"
+import { graphql, StaticQuery } from 'gatsby';
+import React from 'react';
 
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
-import Footer from "./Footer"
-import Header from "./Header"
-import theme from "../../config/theme"
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 // https://github.com/kyleamathews/typefaces
-require("typeface-anton")
+import 'typeface-anton';
+import theme from '../../config/theme';
+import Footer from './Footer';
+import Header from './Header';
 
 const GlobalStyle = createGlobalStyle`
   // @import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
@@ -16,13 +16,13 @@ const GlobalStyle = createGlobalStyle`
     src: url("/airbus.woff2"),
          url("/airbus.woff");
   }
-  
+
 
   h1, h2, h3, body, div, p, li, button, a {
     color: ${theme.colors.on.background}
   }
   h1,h2,h3 {
-    
+
     font-family: 'Anton', sans-serif;
     font-weight: 900;
   }
@@ -40,14 +40,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: "airbus";
 
   }
-`
+`;
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: Props) => (
   <>
-    <GlobalStyle></GlobalStyle>
+    <GlobalStyle />
     <ThemeProvider theme={theme}>
       <FlexWrapper>
         <Header />
@@ -56,20 +56,20 @@ const Layout = ({ children }: Props) => (
       </FlexWrapper>
     </ThemeProvider>
   </>
-)
+);
 
 // Styles
 const FlexWrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-`
+`;
 
 const Main = styled.main`
   max-width: ${({ theme }) => theme.extra.contentMaxWidth};
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.extra.contentPadding};
   width: 100%;
-`
+`;
 
-export default Layout
+export default Layout;

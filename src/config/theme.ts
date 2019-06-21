@@ -1,4 +1,4 @@
-import { DefaultTheme } from "styled-components"
+import { DefaultTheme } from 'styled-components';
 /*
   Theme largely inspired by material design theme
   https://material.io/design/color/#color-theme-creation
@@ -7,26 +7,26 @@ import { DefaultTheme } from "styled-components"
 const theme: DefaultTheme = {
   colors: {
     primary: {
-      500: "#B84A62",
+      500: '#B84A62',
     },
-    secondary: { 500: "#54457F" },
-    surface: { 500: "#f1f1f1" },
-    background: { 500: "#fff" },
-    error: { 500: "#E63B2E" },
+    secondary: { 500: '#54457F' },
+    surface: { 500: '#f1f1f1' },
+    background: { 500: '#fff' },
+    error: { 500: '#E63B2E' },
     on: {
-      primary: "#fff",
-      secondary: "#fff",
-      surface: "#000",
-      background: "#000",
-      error: "#fff",
+      primary: '#fff',
+      secondary: '#fff',
+      surface: '#000',
+      background: '#000',
+      error: '#fff',
     },
   },
   fontSize: {
-    h1: "3rem",
-    h2: "1.5rem",
-    h3: "1.125rem",
-    body1: "1rem",
-    body2: "0.875rem",
+    h1: '3rem',
+    h2: '1.5rem',
+    h3: '1.125rem',
+    body1: '1rem',
+    body2: '0.875rem',
   },
   // letterSpacing: {
   //   tightest: '-0.5em',
@@ -49,9 +49,9 @@ const theme: DefaultTheme = {
     //   1: "0.25rem",
     //   2: "0.5rem",
     //   3: "0.75rem",
-    4: "1rem",
+    4: '1rem',
     //   5: "1.5rem",
-    6: "2rem",
+    6: '2rem',
     //   7: "3rem",
     //   8: "4rem",
     //   9: "6rem",
@@ -70,10 +70,10 @@ const theme: DefaultTheme = {
   //   xl: "1280px",
   // },
   extra: {
-    contentMaxWidth: "960px",
-    contentPadding: "REPLACED BELOW",
+    contentMaxWidth: '960px',
+    contentPadding: 'REPLACED BELOW',
   },
-}
+};
 
-theme.extra.contentPadding = theme.spacing[4]
-export default theme
+theme.extra.contentPadding = theme.spacing[4];
+export default theme;

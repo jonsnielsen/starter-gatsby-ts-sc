@@ -42,7 +42,7 @@ const IndexPage = ({ data }: IPageProps) => {
               name="Jonathan Sparvath"
               profession="Programmer"
               email="smth@smth.com"
-            ></BackerCard>
+            />
           </li>
         </ul>
       </section>
@@ -65,7 +65,7 @@ const BackerCard = ({
 }: IBackerCardProps) => {
   return (
     <Card>
-      <PersonImg fluid={fluidImage}></PersonImg>
+      <PersonImg fluid={fluidImage} />
       <div>
         <h2>{name}</h2>
         <p>{profession}</p>
