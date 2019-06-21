@@ -1,5 +1,7 @@
 // import original module declarations
 import "styled-components"
+// for TypeScript to accept the css prop (typescript) on HTML elements
+import * as types from "styled-components/cssprop"
 
 // and extend them!
 declare module "styled-components" {
