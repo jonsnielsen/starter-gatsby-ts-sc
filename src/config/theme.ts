@@ -49,7 +49,7 @@ const theme: DefaultTheme = {
     //   1: "0.25rem",
     //   2: "0.5rem",
     //   3: "0.75rem",
-    //   4: "1rem",
+    4: "1rem",
     //   5: "1.5rem",
     6: "2rem",
     //   7: "3rem",
@@ -63,5 +63,17 @@ const theme: DefaultTheme = {
     //   15: "40rem",
     //   16: "48rem",
   },
+  // screens: {
+  //   sm: "640px",
+  //   md: "768px",
+  //   lg: "1024px",
+  //   xl: "1280px",
+  // },
+  extra: {
+    contentMaxWidth: "960px",
+    contentPadding: "REPLACED BELOW",
+  },
 }
+
+theme.extra.contentPadding = theme.spacing[4]
 export default theme

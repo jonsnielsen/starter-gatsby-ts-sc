@@ -1,50 +1,32 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import React from "react"
 import logo from "../../assets/images/boka-fav.png"
 
 import styled from "styled-components"
 
 const Header = () => {
-  const query: IQuery = useStaticQuery(headerQuery)
-  const title = query.site.siteMetadata.title
-  // const logo: any = query.file.childImageSharp.fluid
-  console.log(logo)
-
   return (
     <StyledHeader>
-      <Link to="/">
+      <StyledLink to="/">
         <LogoImg src={logo} alt="logo" />
-        <HeaderTitle>{title}</HeaderTitle>
-      </Link>
+      </StyledLink>
     </StyledHeader>
   )
 }
-
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.colors.primary[500]};
+  display: flex;
 `
+const StyledLink = styled(Link)`
+  display: inline-block;
+  width: 100%;
+  max-width: ${({ theme }) => theme.extra.contentMaxWidth};
+  margin: 0 auto;
+`
+
 const LogoImg = styled.img`
   width: 50px;
-`
-const HeaderTitle = styled.h1`
-  color: white;
-  text-decoration: none;
-`
-
-interface IQuery {
-  file: { childImageSharp: { fluid: any } }
-  site: { siteMetadata: { title: string } }
-}
-
-const headerQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
+  margin: ${({ theme }) => theme.extra.contentPadding};
 `
 
 export default Header

@@ -13,16 +13,21 @@ interface IPageProps {
         fluid: any
       }
     }
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
   }
 }
 
 const IndexPage = ({ data }: IPageProps) => {
   const jonathanImage = data.file.childImageSharp.fluid
-  console.log(data)
+  const title = data.site.siteMetadata.title
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Gatsby Starter with TypeScript and Styled Components</h1>
+      <h1>{title}</h1>
       <section>
         <h2>You can do great stuff with this combo!</h2>
         <p>There is also set up a theme with colors, spacing, sizes etc</p>
@@ -89,6 +94,11 @@ export const pageQuery = graphql`
         fluid(maxWidth: 200) {
           ...GatsbyImageSharpFluid
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

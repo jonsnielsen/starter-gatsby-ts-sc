@@ -8,8 +8,22 @@ import theme from "../../config/theme"
 
 console.log(theme)
 const GlobalStyle = createGlobalStyle`
+  @import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
+
+  @font-face {
+    font-family: "airbus";
+    src: url("/airbus.woff2"),
+         url("/airbus.woff");
+  }
+  
+
   h1, h2, h3, body, div, p, li, button, a {
     color: ${theme.colors.on.background}
+  }
+  h1,h2,h3 {
+    
+    font-family: 'Anton', sans-serif;
+    font-weight: 900;
   }
   h1 {
     font-size: ${theme.fontSize.h1};
@@ -22,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body, div, p, li, button, a {
     font-size: ${theme.fontSize.body1};
+    font-family: "airbus";
+
   }
 `
 interface Props {
@@ -49,9 +65,10 @@ const FlexWrapper = styled.div`
 `
 
 const Main = styled.main`
+  max-width: ${({ theme }) => theme.extra.contentMaxWidth};
   margin: 0 auto;
-  max-width: 960;
-  padding: 1.45rem 1.0875rem;
+  padding: 0 ${({ theme }) => theme.extra.contentPadding};
+  width: 100%;
 `
 
 export default Layout
