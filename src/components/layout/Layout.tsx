@@ -5,10 +5,11 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import Footer from "./Footer"
 import Header from "./Header"
 import theme from "../../config/theme"
+// https://github.com/kyleamathews/typefaces
+require("typeface-anton")
 
-console.log(theme)
 const GlobalStyle = createGlobalStyle`
-  @import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
+  // @import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
 
   @font-face {
     font-family: "airbus";
