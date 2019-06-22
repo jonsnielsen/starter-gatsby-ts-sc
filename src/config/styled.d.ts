@@ -67,6 +67,18 @@ declare module "styled-components" {
     //   lg: string
     //   xl: string
     // }
+    fontFamily: {
+      primary: {
+        bold: string  
+        // medium: string
+        // light: string
+      }
+      secondary: {
+        // bold: string
+        medium: string
+        // light: string
+      }
+    }
     extra: {
       contentMaxWidth: string
       contentPadding: string

@@ -69,6 +69,14 @@ const theme: DefaultTheme = {
   //   lg: "1024px",
   //   xl: "1280px",
   // },
+  fontFamily: {
+    primary: {
+      bold: `'Anton', sans-serif`,
+    },
+    secondary: {
+      medium: `'airbus', sans-serif`,
+    },
+  },
   extra: {
     contentMaxWidth: '960px',
     contentPadding: 'REPLACED BELOW',
