@@ -4,7 +4,7 @@ import logo from '../../assets/images/boka-fav.png';
 
 import styled from 'styled-components';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <StyledHeader>
       <StyledLink to='/'>
@@ -13,6 +13,7 @@ const Header = () => {
     </StyledHeader>
   );
 };
+
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.colors.primary[500]};
   display: flex;
