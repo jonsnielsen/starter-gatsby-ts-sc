@@ -1,32 +1,32 @@
-import { Link, graphql } from "gatsby"
-import React from "react"
+import { graphql, Link } from 'gatsby';
+import React from 'react';
 
-import Layout from "../components/layout/Layout"
-import SEO from "../components/meta/Seo"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import { FluidObject } from 'gatsby-image';
+import BackerCard from '../components/backer-card/BackerCard';
+import Layout from '../components/layout/Layout';
+import SEO from '../components/meta/Seo';
 
 interface IPageProps {
   data: {
     file: {
       childImageSharp: {
-        fluid: any
-      }
+        fluid: FluidObject,
+      },
     }
     site: {
       siteMetadata: {
-        title: string
-      }
-    }
-  }
+        title: string,
+      },
+    },
+  };
 }
 
-const IndexPage = ({ data }: IPageProps) => {
-  const jonathanImage = data.file.childImageSharp.fluid
-  const title = data.site.siteMetadata.title
+const IndexPage: React.FC<IPageProps> = ({ data }) => {
+  const jonathanImage = data.file.childImageSharp.fluid;
+  const title = data.site.siteMetadata.title;
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title='Home' />
       <h1>{title}</h1>
       <section>
         <h2>You can do great stuff with this combo!</h2>
@@ -39,53 +39,18 @@ const IndexPage = ({ data }: IPageProps) => {
           <li>
             <BackerCard
               fluidImage={jonathanImage}
-              name="Jonathan Sparvath"
-              profession="Programmer"
-              email="smth@smth.com"
+              name='Jonathan Sparvath'
+              profession='Programmer'
+              email='smth@smth.com'
+              onClick={() => console.log('clicked')}
             />
           </li>
         </ul>
       </section>
-      <Link to="/about/">Go to about</Link>
+      <Link to='/about/'>Go to about</Link>
     </Layout>
-  )
-}
-
-interface IBackerCardProps {
-  fluidImage: any
-  name: string
-  profession: string
-  email: string
-}
-const BackerCard = ({
-  fluidImage,
-  name,
-  profession,
-  email,
-}: IBackerCardProps) => {
-  return (
-    <Card>
-      <PersonImg fluid={fluidImage} />
-      <div>
-        <h2>{name}</h2>
-        <p>{profession}</p>
-        <p>{email}</p>
-      </div>
-    </Card>
-  )
-}
-
-const Card = styled.div`
-  display: flex;
-  align-items: center;
-  padding: ${({ theme }) => theme.spacing[6]};
-  background-color: ${({ theme }) => theme.colors.surface[500]};
-`
-const PersonImg = styled(Img)`
-  width: 100%;
-  max-width: 200px;
-  margin-right: ${({ theme }) => theme.spacing[6]};
-`
+  );
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -102,6 +67,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

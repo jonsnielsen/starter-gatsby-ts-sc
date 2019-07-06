@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "babel-plugin-remove-graphql-queries": "^2.7.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.8.5",
     "gatsby-image": "^2.1.2",
@@ -24,10 +25,17 @@
     "typeface-anton": "0.0.72"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
+    "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.16",
+    "babel-loader": "^8.0.6",
     "prettier": "^1.18.0",
     "tslint": "^5.17.0",
     "tslint-loader": "^3.5.4",
@@ -44,7 +52,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
