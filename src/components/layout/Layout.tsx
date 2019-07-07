@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 // https://github.com/kyleamathews/typefaces
-import themeObject from '../../config/theme';
+import themeObject from '../../config/theme/theme';
+import UpdateThemeContext from '../../config/theme/update-theme/UpdateThemeContext';
+import updateThemeReducer from '../../config/theme/update-theme/updateThemeReducer';
 import Footer from './Footer';
 import GlobalStyles from './GlobalStyles';
 import Header from './Header';
@@ -10,18 +12,25 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children }) => (
-  <>
-    <ThemeProvider theme={themeObject}>
-      <FlexWrapper>
-        <GlobalStyles />
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </FlexWrapper>
-    </ThemeProvider>
-  </>
-);
+const Layout: React.FC<Props> = ({ children }) => {
+  const [theme, updateTheme] = useReducer(updateThemeReducer, themeObject);
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <FlexWrapper>
+          <GlobalStyles />
+          <Header />
+          <Main>
+            <UpdateThemeContext.Provider value={updateTheme}>
+              {children}
+            </UpdateThemeContext.Provider>
+          </Main>
+          <Footer />
+        </FlexWrapper>
+      </ThemeProvider>
+    </>
+  );
+};
 
 // Styles
 const FlexWrapper = styled.div`

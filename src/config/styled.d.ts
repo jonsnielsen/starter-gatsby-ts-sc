@@ -2,8 +2,6 @@
 import "styled-components"
 // for TypeScript to accept the css prop (typescript) on HTML elements
 import * as types from "styled-components/cssprop"
-
-// and extend them!
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
@@ -69,7 +67,7 @@ declare module "styled-components" {
     // }
     fontFamily: {
       primary: {
-        bold: string  
+        bold: string
         // medium: string
         // light: string
       }

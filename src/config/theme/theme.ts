@@ -83,5 +83,4 @@ const theme: DefaultTheme = {
   },
 };
 
-theme.extra.contentPadding = theme.spacing[4];
 export default theme;
