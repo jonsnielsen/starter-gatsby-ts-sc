@@ -4,7 +4,7 @@ import 'typeface-anton';
 export default createGlobalStyle`
       /* @import url("https://fonts.googleapis.com/css?family=Anton&display=swap"); */
       html {
-        background-color: plum;
+        background-color: ${({ theme }) => theme.colors.background[500]};
       }
 
       @font-face {

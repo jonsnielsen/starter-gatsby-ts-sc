@@ -5,6 +5,8 @@ import { FluidObject } from 'gatsby-image';
 import BackerCard from '../components/backer-card/BackerCard';
 import Layout from '../components/layout/Layout';
 import SEO from '../components/meta/Seo';
+import { PartialTheme } from '../config/theme/theme';
+import useThemeUpdater from '../config/theme/update-theme/useThemeUpdater';
 
 interface IPageProps {
   data: {
@@ -24,8 +26,15 @@ interface IPageProps {
 const IndexPage: React.FC<IPageProps> = ({ data }) => {
   const jonathanImage = data.file.childImageSharp.fluid;
   const title = data.site.siteMetadata.title;
+
+  const newTheme: PartialTheme = {
+    colors: { background: { 500: '#000' }, on: { background: '#fff' } },
+  };
+  console.log(newTheme);
+  useThemeUpdater(newTheme);
+
   return (
-    <Layout>
+    <>
       <SEO title='Home' />
       <h1>{title}</h1>
       <section>
@@ -48,7 +57,7 @@ const IndexPage: React.FC<IPageProps> = ({ data }) => {
         </ul>
       </section>
       <Link to='/about/'>Go to about</Link>
-    </Layout>
+    </>
   );
 };
 

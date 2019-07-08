@@ -18,6 +18,13 @@ module.exports = {
     `gatsby-plugin-react-svg`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-typescript`,
+    //in order for context to work with page components, layout needs to be one more level above pages
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout/Layout.tsx`),
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -27,7 +34,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/boka-fav.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

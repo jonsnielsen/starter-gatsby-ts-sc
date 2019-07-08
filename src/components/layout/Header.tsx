@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
-import logo from '../../assets/images/boka-fav.png';
+import Logo from '../../assets/images/logo.svg';
 
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   return (
     <StyledHeader>
       <StyledLink to='/'>
-        <LogoImg src={logo} alt='logo' />
+        <Logo />
       </StyledLink>
     </StyledHeader>
   );
