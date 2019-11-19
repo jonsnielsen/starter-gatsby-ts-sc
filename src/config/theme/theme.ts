@@ -1,4 +1,6 @@
-import { DefaultTheme } from 'styled-components';
+import { useContext } from 'react';
+import { DefaultTheme, ThemeContext } from 'styled-components';
+
 /*
   Theme largely inspired by material design theme
   https://material.io/design/color/#color-theme-creation
@@ -83,10 +85,9 @@ const theme: DefaultTheme = {
   },
 };
 
-type RecursivePartial<T> = {
-  [P in keyof T]?: RecursivePartial<T[P]>
-};
-
-export type PartialTheme = RecursivePartial<DefaultTheme>;
+/**
+ * Allows components to access theme without having to use the 'withStyle' HOC
+ */
+export const useTheme = () => useContext(ThemeContext);
 
 export default theme;
