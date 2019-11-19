@@ -3,9 +3,8 @@ import React from 'react';
 
 import { FluidObject } from 'gatsby-image';
 import BackerCard from '../components/backer-card/BackerCard';
-import Layout from '../components/layout/Layout';
 import SEO from '../components/meta/Seo';
-import { PartialTheme } from '../config/theme/theme';
+import { useTheme } from '../config/theme/theme';
 import useThemeUpdater from '../config/theme/update-theme/useThemeUpdater';
 
 interface IPageProps {
@@ -24,13 +23,13 @@ interface IPageProps {
 }
 
 const IndexPage: React.FC<IPageProps> = ({ data }) => {
+  const theme = useTheme();
   const jonathanImage = data.file.childImageSharp.fluid;
   const title = data.site.siteMetadata.title;
 
-  const newTheme: PartialTheme = {
+  const newTheme: any = {
     colors: { background: { 500: '#000' }, on: { background: '#fff' } },
   };
-  console.log(newTheme);
   useThemeUpdater(newTheme);
 
   return (
@@ -41,6 +40,7 @@ const IndexPage: React.FC<IPageProps> = ({ data }) => {
         <h2>You can do great stuff with this combo!</h2>
         <p>There is also set up a theme with colors, spacing, sizes etc</p>
         <p>Modify the defaults to your liking!</p>
+        <p>Theme bgColor: {theme.colors.background[500]} </p>
       </section>
       <section>
         <h2>Project backers</h2>

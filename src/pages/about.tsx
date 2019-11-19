@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/layout/Layout';
 import SEO from '../components/meta/Seo';
-import { PartialTheme } from '../config/theme/theme';
-import useThemeUpdater from '../config/theme/update-theme/useThemeUpdater';
+import useThemeUpdater, {
+  IUpdatedTheme,
+} from '../config/theme/update-theme/useThemeUpdater';
 
 const IndexPage = () => {
-  const newTheme: PartialTheme = {
+  const newTheme: IUpdatedTheme = {
     colors: { background: { 500: '#abba' }, on: { background: '#fff' } },
   };
-  console.log(newTheme);
   useThemeUpdater(newTheme);
 
   return (
