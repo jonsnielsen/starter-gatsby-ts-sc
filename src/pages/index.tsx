@@ -29,7 +29,7 @@ const IndexPage: React.FC<IPageProps> = ({ data }) => {
   const jonathanImage = data.file.childImageSharp.fluid;
   const title = data.site.siteMetadata.title;
 
-  const newTheme: any = {
+  const newTheme: IUpdatedTheme = {
     colors: {
       background: { 500: '#000' },
       on: { background: '#fff' },
